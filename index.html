@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seasonal Sampling with Recess: Halloween & Holiday</title>
+<meta name="description" content="Put your product in families' hands during the two biggest seasonal stock-up moments of the year: Halloween haunted houses and holiday lights events. Run it nationally or through the Dollar General Media Network.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0a0c12;
+    --ink-2:#12151e;
+    --paper:#f6f8fb;
+    --paper-2:#e6ebf2;
+    --fog:#9aa3b2;
+    --line:rgba(255,255,255,.10);
+    /* Recess brand */
+    --brand:#2bb8de;
+    --brand-soft:#8ad9f0;
+    /* Halloween */
+    --hw-amber:#ff7a18;
+    --hw-ember:#ff9d3c;
+    --hw-purple:#7b2ff7;
+    --hw-deep:#2a0f45;
+    /* Holiday */
+    --ho-gold:#e9c37a;
+    --ho-gold-soft:#f3dca6;
+    --ho-pine:#0f5132;
+    --ho-ice:#8fd3ff;
+    --ho-deep:#07231a;
+    --maxw:1200px;
+    --serif:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --sans:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--ink);color:var(--paper);
+    font-family:var(--sans);font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:var(--sans);font-weight:800;line-height:1.03;margin:0;letter-spacing:-.032em}
+  a{color:inherit}
+  img{max-width:100%;display:block}
+  .ico{width:1em;height:1em;display:inline-block;vertical-align:-0.14em;fill:currentColor;flex:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .eyebrow{font-family:var(--sans);font-weight:700;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--brand)}
+  .btn{
+    display:inline-flex;align-items:center;gap:.5em;font-family:var(--sans);font-weight:600;font-size:16px;
+    padding:14px 24px;border-radius:999px;text-decoration:none;transition:transform .15s ease, background .2s ease;
+    cursor:pointer;border:1px solid transparent;
+  }
+  .btn:hover{transform:translateY(-2px)}
+  .btn-solid{background:var(--paper);color:var(--ink)}
+  .btn-ghost{background:transparent;border-color:rgba(255,255,255,.28);color:var(--paper)}
+  .btn-arrow::after{content:"→";font-family:var(--sans)}
+
+  /* ---------- NAV ---------- */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(11,11,15,.72);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:66px;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .logo{text-decoration:none;display:flex;align-items:center}
+  .logo img{height:26px;width:auto;display:block}
+  .nav-links{display:flex;gap:30px;align-items:center}
+  .nav-links a{text-decoration:none;font-size:15px;font-weight:500;color:var(--fog);transition:color .2s}
+  .nav-links a:hover{color:var(--paper)}
+  .nav-cta{padding:10px 20px;border-radius:999px;background:var(--brand);border:none;color:#04252e!important;font-weight:700}
+  .nav-cta:hover{background:var(--brand-soft)}
+  @media(max-width:860px){.nav-links a:not(.nav-cta){display:none}}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;padding:74px 0 0;text-align:center;overflow:hidden}
+  .hero-glow{position:absolute;inset:0;z-index:0;background:
+     radial-gradient(60% 50% at 22% 8%, rgba(255,122,24,.22), transparent 60%),
+     radial-gradient(60% 55% at 82% 4%, rgba(143,211,255,.18), transparent 60%),
+     radial-gradient(70% 60% at 50% 120%, rgba(123,47,247,.20), transparent 60%);
+     pointer-events:none}
+  .hero .wrap{position:relative;z-index:2}
+  .hero h1{font-size:clamp(38px,7vw,86px);letter-spacing:-.02em;max-width:14ch;margin:18px auto 0}
+  .hero h1 .hw{background:linear-gradient(120deg,var(--brand-soft),var(--brand));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero h1 .ho{background:linear-gradient(120deg,var(--ho-gold-soft),var(--ho-gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p.sub{font-size:clamp(17px,2.2vw,21px);color:#d8d3cb;max-width:60ch;margin:22px auto 0}
+  .hero .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:30px 0 8px}
+  .hero-note{font-size:14px;color:var(--fog);margin-top:6px}
+
+  /* split hero visual */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:56px;position:relative;z-index:2}
+  .split .panel{position:relative;min-height:clamp(440px,62vh,700px);overflow:hidden}
+  .split .panel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+  .split .panel:hover img{transform:scale(1.05)}
+  .split .panel .veil{position:absolute;inset:0}
+  .split .panel.hw .veil{background:linear-gradient(180deg, rgba(20,6,0,.15), rgba(20,6,0,.35) 55%, rgba(20,6,0,.86));box-shadow:inset 0 0 140px rgba(255,122,24,.28)}
+  .split .panel.ho .veil{background:linear-gradient(180deg, rgba(2,15,10,.15), rgba(2,15,10,.4) 55%, rgba(2,15,10,.88));box-shadow:inset 0 0 140px rgba(143,211,255,.22)}
+  .split .panel .cap{position:absolute;left:0;right:0;bottom:0;padding:28px 30px;text-align:left}
+  .split .panel .cap .k{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600}
+  .split .panel.hw .cap .k{color:var(--hw-ember)}
+  .split .panel.ho .cap .k{color:var(--ho-gold)}
+  .split .panel .cap h3{font-size:clamp(27px,3.6vw,42px);font-weight:800;margin-top:8px}
+  .split .panel .cap .when{font-size:14px;color:#cfcac2;margin-top:6px;font-weight:500}
+  @media(max-width:720px){.split{grid-template-columns:1fr}}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{position:relative}
+  .band{padding:96px 0}
+  .center{text-align:center}
+  .lead{font-size:clamp(26px,4vw,44px);max-width:20ch;margin:0 auto;line-height:1.08}
+  .kicker{margin-bottom:16px}
+  .muted{color:#cdc8c0}
+
+  /* category exclusive */
+  .excl{background:linear-gradient(180deg, rgba(43,184,222,.07), transparent 90%);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:52px 0}
+  .excl .wrap{display:flex;gap:22px;align-items:center;justify-content:center;flex-wrap:wrap;text-align:left}
+  .excl .lock{font-size:32px;line-height:1;color:var(--brand)}
+  .excl .txt{max-width:660px}
+  .excl h3{font-size:clamp(21px,2.9vw,30px);font-weight:800;letter-spacing:-.02em}
+  .excl h3 .c{color:var(--brand)}
+  .excl p{color:#c7ccd6;font-size:16px;margin:8px 0 0}
+  @media(max-width:620px){.excl .wrap{text-align:center}}
+  .badge-excl{display:inline-flex;align-items:center;gap:.4em;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:6px 12px;border-radius:999px;background:rgba(43,184,222,.12);color:var(--brand);border:1px solid rgba(43,184,222,.38);margin-left:10px;vertical-align:middle}
+
+  /* how it works - network steps */
+  .flow{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:52px;text-align:left}
+  .flow .step{position:relative;padding:26px 22px;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:18px}
+  .flow .step .n{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:17px;background:var(--brand);color:#04252e;margin-bottom:18px}
+  .flow .step h4{font-family:var(--sans);font-size:17px;font-weight:800;letter-spacing:-.02em;margin:0 0 9px}
+  .flow .step p{font-size:14px;color:#c7ccd6;margin:0;line-height:1.55}
+  @media(max-width:1000px){.flow{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.flow{grid-template-columns:1fr}}
+
+  /* the moment */
+  .moment{background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .moment .lead{max-width:24ch}
+  .moment p.big{font-size:clamp(19px,2.4vw,23px);color:#d8d3cb;max-width:64ch;margin:24px auto 0}
+  .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:56px}
+  .stat{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:18px;padding:28px 26px;text-align:left}
+  .stat .ic{font-size:28px;color:var(--brand)}
+  .stat h4{font-family:var(--serif);font-size:21px;margin:14px 0 8px;font-weight:600}
+  .stat p{font-size:15.5px;color:#c7c2ba;margin:0}
+  @media(max-width:760px){.stat-row{grid-template-columns:1fr}}
+
+  /* ---------- PROGRAM ---------- */
+  .program{padding:104px 0}
+  .program .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+  .program.flip .grid{grid-template-columns:.95fr 1.05fr}
+  .program.flip .copy{order:2}
+  .program.flip .visual{order:1}
+  @media(max-width:900px){.program .grid,.program.flip .grid{grid-template-columns:1fr;gap:40px}.program.flip .copy{order:1}.program.flip .visual{order:2}}
+  .season-tag{display:inline-flex;align-items:center;gap:.55em;font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase;padding:7px 14px;border-radius:999px}
+  .hw-scope .season-tag{background:rgba(255,122,24,.13);color:var(--hw-ember);border:1px solid rgba(255,122,24,.3)}
+  .ho-scope .season-tag{background:rgba(233,195,122,.12);color:var(--ho-gold);border:1px solid rgba(233,195,122,.3)}
+  .program h2{font-size:clamp(30px,4.6vw,52px);margin:20px 0 0}
+  .hw-scope h2 .accent{color:var(--hw-ember)}
+  .ho-scope h2 .accent{color:var(--ho-gold)}
+  .program .when-line{font-weight:600;font-size:15px;margin-top:14px;letter-spacing:.02em}
+  .hw-scope .when-line{color:var(--hw-ember)}
+  .ho-scope .when-line{color:var(--ho-gold)}
+  .program .desc{color:#d5d0c8;margin-top:18px;font-size:18px;max-width:52ch}
+  .feat{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:14px}
+  .feat li{display:flex;gap:14px;align-items:flex-start;font-size:16.5px;color:#e7e3dc}
+  .feat li .tick{flex:0 0 auto;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:700;margin-top:2px}
+  .hw-scope .feat li .tick{background:rgba(255,122,24,.16);color:var(--hw-ember)}
+  .ho-scope .feat li .tick{background:rgba(233,195,122,.16);color:var(--ho-gold)}
+  .aud{margin-top:30px;font-size:14px;color:var(--fog)}
+  .aud b{color:var(--paper);font-weight:600}
+
+  /* program visuals */
+  .visual{position:relative}
+  .photo-main{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 30px 80px rgba(0,0,0,.55)}
+  .photo-main img{width:100%;height:100%;object-fit:cover}
+  .photo-main .frameglow{position:absolute;inset:0;pointer-events:none;border-radius:22px}
+  .hw-scope .photo-main .frameglow{box-shadow:inset 0 0 0 1px rgba(255,122,24,.25), inset 0 -80px 120px rgba(42,15,69,.5)}
+  .ho-scope .photo-main .frameglow{box-shadow:inset 0 0 0 1px rgba(233,195,122,.25), inset 0 -80px 120px rgba(7,35,26,.55)}
+  .photo-mini{position:absolute;width:44%;aspect-ratio:1/1;border-radius:16px;overflow:hidden;border:5px solid var(--ink);box-shadow:0 20px 50px rgba(0,0,0,.5)}
+  .photo-mini img{width:100%;height:100%;object-fit:cover}
+  .visual.hw-visual .photo-mini{right:-18px;bottom:-26px}
+  .visual.ho-visual .photo-mini{left:-18px;bottom:-26px}
+  @media(max-width:900px){.photo-mini{width:40%}}
+
+  .hw-scope{background:radial-gradient(120% 90% at 100% 0%, rgba(123,47,247,.10), transparent 55%), radial-gradient(100% 80% at 0% 100%, rgba(255,122,24,.08), transparent 55%)}
+  .ho-scope{background:radial-gradient(120% 90% at 0% 0%, rgba(143,211,255,.09), transparent 55%), radial-gradient(100% 80% at 100% 100%, rgba(233,195,122,.08), transparent 55%);border-top:1px solid var(--line)}
+
+  /* ---------- RUN IT YOUR WAY ---------- */
+  .ways{background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .ways .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:52px;max-width:820px;margin-left:auto;margin-right:auto}
+  .card{background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.015));border:1px solid var(--line);border-radius:20px;padding:32px 28px;position:relative;overflow:hidden}
+  .card .num{font-family:var(--serif);font-size:15px;color:var(--fog);font-weight:600}
+  .card h3{font-size:24px;margin:10px 0 12px}
+  .card p{font-size:15.5px;color:#c7c2ba;margin:0}
+  .card .rail{position:absolute;left:0;top:0;bottom:0;width:4px}
+  .card.national .rail{background:linear-gradient(var(--hw-amber),var(--ho-gold))}
+  .card.dg .rail{background:#ffc220}
+  .card .chip{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.04em;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.06);color:#d8d3cb;margin-bottom:16px}
+  @media(max-width:840px){.ways .cards{grid-template-columns:1fr}}
+
+  /* ---------- WHAT YOU GET ---------- */
+  .get .rows{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:56px}
+  .get .item h4{font-family:var(--serif);font-size:23px;font-weight:600;margin:0 0 10px;display:flex;align-items:center;gap:.5em}
+  .get .item p{font-size:16px;color:#c7c2ba;margin:0}
+  .get .item .bar{height:3px;width:44px;background:var(--brand);margin-bottom:20px}
+  @media(max-width:840px){.get .rows{grid-template-columns:1fr;gap:34px}}
+
+  /* ---------- PROOF ---------- */
+  .proof{background:var(--ink)}
+  .brands{display:flex;flex-wrap:wrap;gap:14px 12px;justify-content:center;margin-top:40px}
+  .brand-pill{font-family:var(--serif);font-weight:600;font-size:clamp(18px,2.4vw,26px);color:#efe9e0;padding:10px 22px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03)}
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:44px}
+  .gallery .g{border-radius:14px;overflow:hidden;aspect-ratio:1/1;position:relative}
+  .gallery .g img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+  .gallery .g:hover img{transform:scale(1.06)}
+  .gallery .g .tag{position:absolute;left:10px;bottom:10px;font-size:11px;font-weight:600;letter-spacing:.04em;padding:4px 9px;border-radius:999px;background:rgba(0,0,0,.55);backdrop-filter:blur(4px)}
+  @media(max-width:840px){.gallery{grid-template-columns:repeat(2,1fr)}}
+  /* masonry field gallery */
+  .mgrid{column-count:3;column-gap:14px;margin-top:44px}
+  .mgrid .m{break-inside:avoid;margin:0 0 12px;border-radius:14px;overflow:hidden;position:relative;background:#17171d}
+  .mgrid .m img{width:100%;display:block;transition:transform .6s ease}
+  .mgrid .m:hover img{transform:scale(1.05)}
+  .mgrid .m .tag{position:absolute;left:10px;bottom:10px;font-size:11px;font-weight:600;letter-spacing:.03em;padding:4px 9px;border-radius:999px;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);color:#fff}
+  @media(max-width:1000px){.mgrid{column-count:3}}
+  @media(max-width:680px){.mgrid{column-count:2}}
+
+  /* ---------- DIGITAL AMPLIFICATION ---------- */
+  .amp{background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .amp .rail{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:52px;align-items:flex-start}
+  .amp .post{width:288px;border-radius:20px;overflow:hidden;background:#0f0f15;border:1px solid var(--line);box-shadow:0 24px 60px rgba(0,0,0,.5);position:relative}
+  .amp .post img{width:100%;display:block}
+  .amp .post .plt{position:absolute;top:12px;left:12px;font-size:11px;font-weight:700;letter-spacing:.04em;padding:5px 11px;border-radius:999px;background:rgba(0,0,0,.62);backdrop-filter:blur(6px);color:#fff;display:flex;align-items:center;gap:.4em}
+  .amp .caption{max-width:60ch;margin:16px auto 0}
+  @media(max-width:980px){.amp .post{width:240px}}
+  @media(max-width:640px){.amp .post{width:100%;max-width:340px}}
+
+  /* ---------- CTA ---------- */
+  .final{position:relative;text-align:center;padding:118px 0;overflow:hidden;border-top:1px solid var(--line)}
+  .final-glow{position:absolute;inset:0;background:
+    radial-gradient(50% 60% at 20% 0%, rgba(255,122,24,.22), transparent 60%),
+    radial-gradient(50% 60% at 80% 10%, rgba(233,195,122,.20), transparent 60%),
+    radial-gradient(60% 70% at 50% 110%, rgba(123,47,247,.20), transparent 60%)}
+  .final .wrap{position:relative;z-index:2}
+  .final h2{font-size:clamp(32px,5.4vw,60px);max-width:16ch;margin:0 auto 20px}
+  .final p{font-size:clamp(17px,2.2vw,20px);color:#d8d3cb;max-width:54ch;margin:0 auto 34px}
+
+  footer{background:var(--ink);border-top:1px solid var(--line);padding:40px 0;color:var(--fog);font-size:14px}
+  .foot-in{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+  .foot-in .logo{font-size:19px}
+
+  /* light bokeh for holiday hero panel */
+  .bokeh{position:absolute;inset:0;pointer-events:none;z-index:1}
+  .bokeh span{position:absolute;border-radius:50%;filter:blur(.5px);opacity:.0}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.5 13.3A8.5 8.5 0 1 1 10.7 3.5a6.6 6.6 0 0 0 9.8 9.8z"/></symbol>
+  <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3z"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><path d="M8 10V7a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="2"/><rect x="5" y="10" width="14" height="10" rx="2"/></symbol>
+  <symbol id="i-cart" viewBox="0 0 24 24"><path d="M2.5 4h2l2 11h10l2-8H6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 6.5"/></symbol>
+</svg>
+
+<header class="nav">
+  <div class="nav-in">
+    <a href="#top" class="logo"><img src="images/recess-logo-full-white.png" alt="Recess"></a>
+    <nav class="nav-links">
+      <a href="#halloween">Halloween</a>
+      <a href="#holiday">Holiday</a>
+      <a href="#how">How it works</a>
+      <a href="#partners">Retail partners</a>
+      <a href="https://www.recess.is" target="_blank" rel="noopener" class="nav-cta">Learn More</a>
+    </nav>
+  </div>
+</header>
+
+<a id="top"></a>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="wrap">
+    <h1>Turn tentpole moments into <span class="hw">measurable trial</span>.</h1>
+    <p class="sub">Halloween and the holidays are when your target audience is already out, celebrating and stocking up. Recess meets them in those real-world moments, putting your product in their hands at the season's biggest haunted houses and holiday lights events.</p>
+  </div>
+
+  <div class="split">
+    <div class="panel hw">
+      <img src="images/hero_hw.jpg" alt="Guests with samples at the Queen Mary Dark Harbor haunted attraction">
+      <div class="veil"></div>
+      <div class="cap">
+        <div class="k"><svg class="ico"><use href="#i-moon"></use></svg> Program 01</div>
+        <h3>Halloween at Haunted Houses</h3>
+        <div class="when">September – November</div>
+      </div>
+    </div>
+    <div class="panel ho">
+      <img src="images/hero_ho.jpg" alt="Guest handing a Taco Bell sample to a light-wrapped truck at a holiday lights event">
+      <div class="veil"></div>
+      <div class="cap">
+        <div class="k"><svg class="ico"><use href="#i-sparkle"></use></svg> Program 02</div>
+        <h3>Holiday at Holiday Lights Events</h3>
+        <div class="when">November – December</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORY EXCLUSIVE -->
+<section class="excl">
+  <div class="wrap">
+    <div class="lock"><svg class="ico"><use href="#i-lock"></use></svg></div>
+    <div class="txt">
+      <h3>These are <span class="c">category-exclusive</span> opportunities.</h3>
+      <p>Only one brand per category can own each season. Claim yours and your competitors are locked out for the length of the program.</p>
+    </div>
+  </div>
+</section>
+
+<!-- THE MOMENT -->
+<section class="band moment center">
+  <div class="wrap">
+    <p class="eyebrow kicker">Why seasonal</p>
+    <h2 class="lead">The cart is never more open than it is in Q4.</h2>
+    <p class="big">From the first pumpkin patch to New Year's, families are shopping bigger, trying new things, and stocking up for gatherings, guests, and gifting. Sampling in these moments doesn't just earn a taste. It lands your product in the exact window when a household decides what makes the list this season.</p>
+    <div class="stat-row">
+      <div class="stat">
+        <div class="ic"><svg class="ico"><use href="#i-cart"></use></svg></div>
+        <h4>Peak stock-up mindset</h4>
+        <p>You reach shoppers when baskets are bigger and they're actively deciding what to buy for the season ahead.</p>
+      </div>
+      <div class="stat">
+        <div class="ic"><svg class="ico"><use href="#i-users"></use></svg></div>
+        <h4>Families, together</h4>
+        <p>Millennial moms, parents, and multi-generational groups, out celebrating, relaxed, and ready to try something new.</p>
+      </div>
+      <div class="stat">
+        <div class="ic"><svg class="ico"><use href="#i-camera"></use></svg></div>
+        <h4>A moment worth sharing</h4>
+        <p>Festive, high-energy settings turn a sample into content: photos, posts, and memories tied to your brand.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAM 01: HALLOWEEN -->
+<a id="halloween"></a>
+<section class="program hw-scope">
+  <div class="wrap">
+    <div class="grid">
+      <div class="copy">
+        <span class="season-tag"><svg class="ico"><use href="#i-moon"></use></svg> Program 01</span><span class="badge-excl"><svg class="ico"><use href="#i-lock"></use></svg> Category Exclusive</span>
+        <h2>Halloween at <span class="accent">Haunted Houses</span></h2>
+        <div class="when-line">Running September – November</div>
+        <p class="desc">Samples distributed across our national haunted house network, the sold-out, buzzed-about attractions where families spend a full night out during the heart of the season.</p>
+        <ul class="feat">
+          <li><span class="tick"><svg class="ico"><use href="#i-check"></use></svg></span><span>Distributed across our <b>national haunted house network</b>, from marquee attractions to beloved local screamparks.</span></li>
+          <li><span class="tick"><svg class="ico"><use href="#i-check"></use></svg></span><span>Lands during <b>peak trick-or-treat stock-up</b>, when candy, snacks, and seasonal favorites are top of the list.</span></li>
+          <li><span class="tick"><svg class="ico"><use href="#i-check"></use></svg></span><span>A captive, high-dwell audience: guests are in line, on-site, and in the mood to try something new.</span></li>
+          <li><span class="tick"><svg class="ico"><use href="#i-check"></use></svg></span><span>Reaches <b>millennial moms, parents, and families</b> during the fall's biggest nights out.</span></li>
+        </ul>
+      </div>
+      <div class="visual hw-visual">
+        <div class="photo-main">
+          <img src="images/p1_main.jpg" alt="Heineken 0.0 sampling display at a haunted attraction">
+          <div class="frameglow"></div>
+        </div>
+        <div class="photo-mini">
+          <img src="images/p1_mini.jpg" alt="Garden Veggie Snacks samples ready at a haunted house">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAM 02: HOLIDAY -->
+<a id="holiday"></a>
+<section class="program flip ho-scope">
+  <div class="wrap">
+    <div class="grid">
+      <div class="copy">
+        <span class="season-tag"><svg class="ico"><use href="#i-sparkle"></use></svg> Program 02</span><span class="badge-excl"><svg class="ico"><use href="#i-lock"></use></svg> Category Exclusive</span>
+        <h2>Holiday at <span class="accent">Holiday Lights Events</span></h2>
+        <div class="when-line">Running November – December</div>
+        <p class="desc">Samples distributed across the most highly buzzed-about holiday lights events, the walk-through and drive-through light spectaculars that define the season's must-do family outings.</p>
+        <ul class="feat">
+          <li><span class="tick"><svg class="ico"><use href="#i-check"></use></svg></span><span>Distributed across <b>highly buzzed-about holiday lights events</b> that draw families in from across the region.</span></li>
+          <li><span class="tick"><svg class="ico"><use href="#i-check"></use></svg></span><span>Lands during the <b>holiday gathering season</b>, when households are hosting, gifting, and stocking up.</span></li>
+          <li><span class="tick"><svg class="ico"><use href="#i-check"></use></svg></span><span>A warm, celebratory setting that puts your product at the center of a cherished tradition.</span></li>
+          <li><span class="tick"><svg class="ico"><use href="#i-check"></use></svg></span><span>Reaches <b>families, millennials, and Gen Z</b> throughout the holiday gathering season.</span></li>
+        </ul>
+      </div>
+      <div class="visual ho-visual">
+        <div class="photo-main">
+          <img src="images/p2_main.jpg" alt="Couple with samples in front of holiday lights">
+          <div class="frameglow"></div>
+        </div>
+        <div class="photo-mini">
+          <img src="images/p2_mini.jpg" alt="Samples with Holiday Lights event signage">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RUN IT YOUR WAY -->
+<a id="partners"></a>
+<section class="band ways center">
+  <div class="wrap">
+    <p class="eyebrow kicker">Run it your way</p>
+    <h2 class="lead">One program. Two ways to activate.</h2>
+    <p class="muted" style="max-width:56ch;margin:18px auto 0">Sampling stands on its own, or plugs directly into your retail media strategy so on-site moments connect to on-shelf sales.</p>
+    <div class="cards">
+      <div class="card national">
+        <div class="rail"></div>
+        <span class="chip">Coast to coast</span>
+        <div class="num">01</div>
+        <h3>National</h3>
+        <p>Run a nationwide footprint across our haunted house and holiday lights networks, no retailer tie-in required.</p>
+      </div>
+      <div class="card dg">
+        <div class="rail"></div>
+        <span class="chip">Retail media</span>
+        <div class="num">02</div>
+        <h3>Dollar General Media Network</h3>
+        <p>Pair sampling with DGMN to reach DG shoppers where they live and celebrate through the season.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET / HOW IT WORKS -->
+<a id="how"></a>
+<section class="band get center">
+  <div class="wrap">
+    <p class="eyebrow kicker">How it works</p>
+    <h2 class="lead">How the Recess network works</h2>
+    <p class="muted" style="max-width:62ch;margin:18px auto 0">Recess turns the season's biggest real-world events into scalable, measurable media placements, driving targeted product trial and retail growth through five connected elements.</p>
+    <div class="flow">
+      <div class="step"><div class="n">1</div><h4>Seasonal Venues</h4><p>The season's most anticipated gatherings, from haunted houses and screamparks in the fall to holiday lights spectaculars through December.</p></div>
+      <div class="step"><div class="n">2</div><h4>Placements &amp; Targeting</h4><p>Each event is a placement in a distributed media buy, targeted by event type, audience, geography, and retailer proximity.</p></div>
+      <div class="step"><div class="n">3</div><h4>Product Trial</h4><p>Your product introduced through trusted teams in real-world moments, for authentic trial while families are out celebrating.</p></div>
+      <div class="step"><div class="n">4</div><h4>Omnichannel Amplification</h4><p>Social, email, and digital touchpoints extend reach and connect the on-site moment back to your retailer and brand destinations.</p></div>
+      <div class="step"><div class="n">5</div><h4>Retail Measurement</h4><p>Closed-loop measurement connects campaign engagement to retail performance, incremental sales, and brand growth.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="band proof center">
+  <div class="wrap">
+    <p class="eyebrow kicker">Real moments from the field</p>
+    <h2 class="lead">This is what showing up looks like.</h2>
+    <p class="muted" style="max-width:56ch;margin:18px auto 0">Real families, real samples, real seasonal nights out, captured across our haunted house and holiday lights networks.</p>
+    <div class="mgrid">
+      <div class="m"><img loading="lazy" src="images/g_hw10.jpg" alt="Garrett Popcorn sampling at the 13th Floor haunted house"><span class="tag"><svg class="ico"><use href="#i-moon"></use></svg> Haunted House</span></div>
+      <div class="m"><img loading="lazy" src="images/g_ho13.jpg" alt="Taco Bell sample handed through a fairy-lit car window at a holiday lights event"><span class="tag"><svg class="ico"><use href="#i-sparkle"></use></svg> Holiday Lights</span></div>
+      <div class="m"><img loading="lazy" src="images/g_hw3.jpg" alt="Group at Queen Mary Dark Harbor"><span class="tag"><svg class="ico"><use href="#i-moon"></use></svg> Haunted House</span></div>
+      <div class="m"><img loading="lazy" src="images/g_ho1.jpg" alt="Guest with snack samples at a holiday lights event"><span class="tag"><svg class="ico"><use href="#i-sparkle"></use></svg> Holiday Lights</span></div>
+      <div class="m"><img loading="lazy" src="images/g_hw12.jpg" alt="Arm and Hammer sampling activation at a haunted farm"><span class="tag"><svg class="ico"><use href="#i-moon"></use></svg> Haunted House</span></div>
+      <div class="m"><img loading="lazy" src="images/g_ho3.jpg" alt="Takis samples ready for a holiday lights event"><span class="tag"><svg class="ico"><use href="#i-sparkle"></use></svg> Holiday Lights</span></div>
+      <div class="m"><img loading="lazy" src="images/g_hw4.jpg" alt="Guest holding a snack sample bag at a haunted house"><span class="tag"><svg class="ico"><use href="#i-moon"></use></svg> Haunted House</span></div>
+      <div class="m"><img loading="lazy" src="images/g_ho8.jpg" alt="Group in front of a wall of holiday lights holding samples"><span class="tag"><svg class="ico"><use href="#i-sparkle"></use></svg> Holiday Lights</span></div>
+      <div class="m"><img loading="lazy" src="images/g_hw1.jpg" alt="Guests with water samples at a haunted house"><span class="tag"><svg class="ico"><use href="#i-moon"></use></svg> Haunted House</span></div>
+      <div class="m"><img loading="lazy" src="images/g_ho4.jpg" alt="Coconut water samples with Glittering Lights event signage"><span class="tag"><svg class="ico"><use href="#i-sparkle"></use></svg> Holiday Lights</span></div>
+      <div class="m"><img loading="lazy" src="images/g_hw8.jpg" alt="Carbe Diem sample in front of a giant jack-o-lantern"><span class="tag"><svg class="ico"><use href="#i-moon"></use></svg> Haunted House</span></div>
+      <div class="m"><img loading="lazy" src="images/g_ho5.jpg" alt="Taco Bell product samples at a holiday lights event"><span class="tag"><svg class="ico"><use href="#i-sparkle"></use></svg> Holiday Lights</span></div>
+      <div class="m"><img loading="lazy" src="images/g_hw5.jpg" alt="Heineken 0.0 branded activation wall at a haunted attraction"><span class="tag"><svg class="ico"><use href="#i-moon"></use></svg> Haunted House</span></div>
+      <div class="m"><img loading="lazy" src="images/g_ho2.jpg" alt="Couple with samples at a holiday lights drive-through"><span class="tag"><svg class="ico"><use href="#i-sparkle"></use></svg> Holiday Lights</span></div>
+      <div class="m"><img loading="lazy" src="images/g_hw11.jpg" alt="Guest with Garrett Popcorn among haunted-house skeletons"><span class="tag"><svg class="ico"><use href="#i-moon"></use></svg> Haunted House</span></div>
+      <div class="m"><img loading="lazy" src="images/g_ho7.jpg" alt="Guest with a coconut water sample at a holiday lights event"><span class="tag"><svg class="ico"><use href="#i-sparkle"></use></svg> Holiday Lights</span></div>
+      <div class="m"><img loading="lazy" src="images/g_hw7.jpg" alt="Guest with a Shrimp Chips sample at Bayville Scream Park"><span class="tag"><svg class="ico"><use href="#i-moon"></use></svg> Haunted House</span></div>
+      <div class="m"><img loading="lazy" src="images/g_ho11.jpg" alt="Takis samples in a bowl at a holiday lights event"><span class="tag"><svg class="ico"><use href="#i-sparkle"></use></svg> Holiday Lights</span></div>
+      <div class="m"><img loading="lazy" src="images/g_hw13.jpg" alt="Guests with Arm and Hammer samples at a haunted farm"><span class="tag"><svg class="ico"><use href="#i-moon"></use></svg> Haunted House</span></div>
+      <div class="m"><img loading="lazy" src="images/g_ho6.jpg" alt="Taco Bell branded sampling at a holiday lights event"><span class="tag"><svg class="ico"><use href="#i-sparkle"></use></svg> Holiday Lights</span></div>
+      <div class="m"><img loading="lazy" src="images/g_hw2.jpg" alt="Couple with samples at a haunted house"><span class="tag"><svg class="ico"><use href="#i-moon"></use></svg> Haunted House</span></div>
+      <div class="m"><img loading="lazy" src="images/g_ho10.jpg" alt="Guest with Hu Kitchen samples at a holiday lights event"><span class="tag"><svg class="ico"><use href="#i-sparkle"></use></svg> Holiday Lights</span></div>
+      <div class="m"><img loading="lazy" src="images/g_hw9.jpg" alt="Carbe Diem sampling among colorful haunted-attraction lights"><span class="tag"><svg class="ico"><use href="#i-moon"></use></svg> Haunted House</span></div>
+      <div class="m"><img loading="lazy" src="images/g_ho12.jpg" alt="Couple with samples in front of holiday lights"><span class="tag"><svg class="ico"><use href="#i-sparkle"></use></svg> Holiday Lights</span></div>
+      <div class="m"><img loading="lazy" src="images/g_hw6.jpg" alt="Guests with Heineken 0.0 samples at a haunted event"><span class="tag"><svg class="ico"><use href="#i-moon"></use></svg> Haunted House</span></div>
+      <div class="m"><img loading="lazy" src="images/g_hw14.jpg" alt="Bayville Scream Park entrance and Shrimp Chips sampling"><span class="tag"><svg class="ico"><use href="#i-moon"></use></svg> Haunted House</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- DIGITAL AMPLIFICATION (hidden for now until live post URLs are sourced -->
+
+<!-- FINAL CTA (soft) -->
+<a id="talk"></a>
+<section class="final">
+  <div class="final-glow"></div>
+  <div class="wrap">
+    <p class="eyebrow kicker">Let's build your season</p>
+    <h2>Ready to own your category this Q4?</h2>
+    <p>We'll walk you through the networks, the seasonal timing, and how to build a footprint that fits your goals, nationally or through the Dollar General Media Network. No commitment, just the full picture.</p>
+    <a href="mailto:hello@recess.is?subject=Plan%20Our%20Q4%20Moments%20with%20Recess" class="btn btn-solid btn-arrow">Plan Your Q4 Moments</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-in">
+    <a href="#top" class="logo"><img src="images/recess-logo-full-white.png" alt="Recess"></a>
+  </div>
+</footer>
+
+</body>
+</html>
